@@ -20,26 +20,33 @@ class DevicePositionRenderingSystem extends WebGlRenderingSystem {
   @override
   void processEntity(int index, Entity entity) {
     var p = pm[entity];
+    var dr = drm[entity];
+    var rot = dr.rot;// * 2.0 * PI / 360.0;
+    var quat = new Quaternion.euler(rot.x, rot.y, rot.z);
 
     var itemOffset = index * valuesPerVertex * verticeCount;
     var indicesOffset = index * valuesPerVertex * trianglesPerObject;
     var offset = index * verticeCount;
 
-    items[itemOffset] = p.pos.x - 0.1;
-    items[itemOffset + 1] = p.pos.y - 0.1;
-    items[itemOffset + 2] = p.pos.z;
+    var rotPos = new Vector3(-0.1, -0.1, 0.0)..applyQuaternion(quat);
+    items[itemOffset] = p.pos.x + rotPos.x;
+    items[itemOffset + 1] = p.pos.y + rotPos.y;
+    items[itemOffset + 2] = p.pos.z + rotPos.z;
 
-    items[itemOffset + 3] = p.pos.x + 0.1;
-    items[itemOffset + 4] = p.pos.y - 0.1;
-    items[itemOffset + 5] = p.pos.z;
+    rotPos = new Vector3(0.1, -0.1, 0.0)..applyQuaternion(quat);
+    items[itemOffset + 3] = p.pos.x + rotPos.x;
+    items[itemOffset + 4] = p.pos.y + rotPos.y;
+    items[itemOffset + 5] = p.pos.z + rotPos.z;
 
-    items[itemOffset + 6] = p.pos.x - 0.1;
-    items[itemOffset + 7] = p.pos.y + 0.1;
-    items[itemOffset + 8] = p.pos.z;
+    rotPos = new Vector3(-0.1, 0.1, 0.0)..applyQuaternion(quat);
+    items[itemOffset + 6] = p.pos.x + rotPos.x;
+    items[itemOffset + 7] = p.pos.y + rotPos.y;
+    items[itemOffset + 8] = p.pos.z + rotPos.z;
 
-    items[itemOffset + 9] = p.pos.x + 0.1;
-    items[itemOffset + 10] = p.pos.y + 0.1;
-    items[itemOffset + 11] = p.pos.z;
+    rotPos = new Vector3(0.1, 0.1, 0.0)..applyQuaternion(quat);
+    items[itemOffset + 9] = p.pos.x + rotPos.x;
+    items[itemOffset + 10] = p.pos.y + rotPos.y;
+    items[itemOffset + 11] = p.pos.z + rotPos.z;
 
     indices[indicesOffset] = offset;
     indices[indicesOffset + 1] = offset + 1;
