@@ -1,7 +1,10 @@
 library client;
 
-import 'dart:html' hide Player, Timeline;
-export 'dart:html' hide Player, Timeline;
+import 'dart:html';
+export 'dart:html';
+import 'dart:web_gl';
+import 'dart:typed_data';
+import 'dart:convert';
 import 'package:webstuff/shared.dart';
 import 'package:gamedev_helpers/gamedev_helpers.dart';
 export 'package:gamedev_helpers/gamedev_helpers.dart';
@@ -19,15 +22,32 @@ class Game extends GameBase {
     hudCtx
       ..textBaseline = 'top'
       ..font = '16px Verdana';
+
+    world.addManager(new TagManager());
   }
+
   void createEntities() {
-    // addEntity([Component1, Component2]);
+    var e = addEntity([
+      new Position(0.0, 0.0, 0.0),
+      new DeviceRotation(0.0, 0.0, 0.0),
+      new DeviceMotion(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    ]);
+
+    var tm = world.getManager(TagManager) as TagManager;
+    tm.register(e, '0');
+    tm.register(e, '1');
+    tm.register(e, '2');
+    tm.register(e, '3');
   }
+
   Map<int, List<EntitySystem>> getSystems() {
     return {
       GameBase.rendering: [
+        new DeviceMotionEventhandlingSystem(),
         new WebGlCanvasCleaningSystem(ctx),
         new CanvasCleaningSystem(hudCanvas),
+        new MovementSystem(),
+        new DevicePositionRenderingSystem(this.ctx),
         new FpsRenderingSystem(hudCtx, fillStyle: 'white'),
       ],
       GameBase.physics: [
@@ -36,4 +56,3 @@ class Game extends GameBase {
     };
   }
 }
-
