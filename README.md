@@ -1,2 +1,3 @@
-# webstuff
-Playing around with bleeding edge web/html5 stuff
+webstuff
+===========
+[Play on kayzgames.github.io](http://kayzgames.github.io/webstuff)

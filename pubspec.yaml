@@ -1,15 +1,15 @@
-name: 'webstuff'
-version: 0.0.1
-description: An absolute bare-bones web app.
-#author: Dennis Kaselow <email@example.com>
-#homepage: https://www.example.com
-
-environment:
-  sdk: '>=1.0.0 <2.0.0'
-
+name: webstuff
+description: A webstuff game
 dependencies:
-  browser: '>=0.10.0 <0.11.0'
-  dart_to_js_script_rewriter: '^1.0.1'
-
+  browser: any
+  dartemis: any
+  dartemis_transformer: any
+  gamedev_helpers:
+#    git: https://github.com/denniskaselow/gamedev_helpers
+    path: ../gamedev_helpers
+  dart_to_js_script_rewriter: any
 transformers:
 - dart_to_js_script_rewriter
+- dartemis_transformer:
+    additionalLibraries:
+    - gamedev_helpers/gamedev_helpers.dart
