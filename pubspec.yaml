@@ -1,14 +1,18 @@
 name: webstuff
 description: A webstuff game
 dependencies:
+  angular2: 2.0.0-beta.22
   browser: any
   dartemis: any
-  dartemis_transformer: any
+  dartemis_transformer:
+    path: ../dartemis_transformer
   gamedev_helpers:
 #    git: https://github.com/denniskaselow/gamedev_helpers
     path: ../gamedev_helpers
   dart_to_js_script_rewriter: any
 transformers:
+- angular2:
+    entry_points: web/webstuff.dart
 - dart_to_js_script_rewriter
 - dartemis_transformer:
     additionalLibraries:
