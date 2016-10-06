@@ -12,6 +12,7 @@ dependencies:
   dart_to_js_script_rewriter: any
 transformers:
 - angular2:
+    platform_directives: 'package:angular2/src/common/directives.dart#CORE_DIRECTIVES'
     entry_points: web/webstuff.dart
 - dart_to_js_script_rewriter
 - dartemis_transformer:

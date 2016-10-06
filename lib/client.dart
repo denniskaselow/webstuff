@@ -13,16 +13,7 @@ part 'src/client/systems/events.dart';
 part 'src/client/systems/rendering.dart';
 
 class Game extends GameBase {
-  CanvasElement hudCanvas;
-  CanvasRenderingContext2D hudCtx;
-
-  Game() : super.noAssets('webstuff', '#game', 800, 600, webgl: true) {
-    hudCanvas = querySelector('#hud');
-    hudCtx = hudCanvas.context2D;
-    hudCtx
-      ..textBaseline = 'top'
-      ..font = '16px Verdana';
-
+  Game() : super.noAssets('webstuff', '#game', 200, 200, webgl: true) {
     world.addManager(new TagManager());
   }
 
@@ -45,10 +36,8 @@ class Game extends GameBase {
       GameBase.rendering: [
         new DeviceMotionEventhandlingSystem(),
         new WebGlCanvasCleaningSystem(ctx),
-        new CanvasCleaningSystem(hudCanvas),
         new MovementSystem(),
         new DevicePositionRenderingSystem(this.ctx),
-        new FpsRenderingSystem(hudCtx, fillStyle: 'white'),
       ],
       GameBase.physics: [
         // add at least one

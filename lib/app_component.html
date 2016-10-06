@@ -1,15 +1,20 @@
 <div id="logo">Logo</div>
 <div id="logout">Logout etc</div>
 <div id="content">
-  <div id="gamecontainer">
-    <canvas id="game" width="800px" height="600px"></canvas>
-    <canvas id="hud" width="800px" height="600px"></canvas>
-  </div>
+  <intro *ngIf='page == 0'></intro>
+  <websockets *ngIf='page == 1'></websockets>
+  <webrtc *ngIf='page == 2'></webrtc>
+  <notifications *ngIf='page == 3'></notifications>
 </div>
 <div id="nav1">Level 1 Nav</div>
-<div id="nav2">Level 2 Nav</div>
+<div id="nav2">
+  <canvas id="game"></canvas>
+</div>
 <div id="nav3">Einstellungen, Archiv etc.</div>
-<div id="footer">Footer</div>
+<div id="footer">
+  <button (click)='previous()' [disabled]='page == 0'>Zurück</button>
+  <button (click)='next()' [disabled]='page == 3'>Weiter</button>
+</div>
 
 
 
