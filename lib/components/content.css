@@ -3,3 +3,8 @@ ul {
   margin-left: 60px;
   font-size: 40px;
 }
+
+div > div.webtech {
+  position: absolute;
+  font-size: 30px;
+}

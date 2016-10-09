@@ -4,8 +4,9 @@
   <intro *ngIf='page == 0'></intro>
   <agenda *ngIf='page == 1' [items]='pages.sublist(2, 5)'></agenda>
   <history *ngIf='page == 2'></history>
-  <websockets *ngIf='page == 3'></websockets>
-  <notifications *ngIf='page == 4'></notifications>
+  <today *ngIf='page == 3'></today>
+  <websockets *ngIf='page == 4'></websockets>
+  <notifications *ngIf='page == 5'></notifications>
 </div>
 <div id="nav1">Level 1 Nav</div>
 <div id="nav2">
@@ -14,7 +15,7 @@
 <div id="clients">{{clients}}</div>
 <div id="footer">
   <button (click)='previous()' [disabled]='page == 0'>&lt;&lt;</button>
-  <button (click)='next()' [disabled]='page == 3'>&gt;&gt;</button>
+  <button (click)='next()' [disabled]='page == pages.length - 1'>&gt;&gt;</button>
 </div>
 
 

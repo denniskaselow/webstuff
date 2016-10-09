@@ -8,6 +8,7 @@ import 'package:webstuff/components/agenda/agenda_component.dart';
 import 'package:webstuff/components/history/history_component.dart';
 import 'package:webstuff/components/intro/intro_component.dart';
 import 'package:webstuff/components/notifications/notifications_component.dart';
+import 'package:webstuff/components/today/today_component.dart';
 import 'package:webstuff/components/websockets/websockets_component.dart';
 
 @Component(
@@ -18,6 +19,7 @@ import 'package:webstuff/components/websockets/websockets_component.dart';
       IntroComponent,
       AgendaComponent,
       HistoryComponent,
+      TodayComponent,
       WebsocketsComponent,
       NotificationsComponent
     ])
