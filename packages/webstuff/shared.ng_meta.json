@@ -1,0 +1,43 @@
+{
+  "ngDeps": {
+    "1": "shared",
+    "3": [
+      {
+        "1": "package:gamedev_helpers/gamedev_helpers_shared.dart",
+        "5": false
+      }
+    ],
+    "6": "shared.dart"
+  },
+  "type": {
+    "Position": {
+      "class": "Identifier",
+      "name": "Position",
+      "moduleUrl": "asset:webstuff/lib/shared.dart",
+      "prefix": null,
+      "value": null
+    },
+    "DeviceRotation": {
+      "class": "Identifier",
+      "name": "DeviceRotation",
+      "moduleUrl": "asset:webstuff/lib/shared.dart",
+      "prefix": null,
+      "value": null
+    },
+    "DeviceMotion": {
+      "class": "Identifier",
+      "name": "DeviceMotion",
+      "moduleUrl": "asset:webstuff/lib/shared.dart",
+      "prefix": null,
+      "value": null
+    },
+    "MovementSystem": {
+      "class": "Identifier",
+      "name": "MovementSystem",
+      "moduleUrl": "asset:webstuff/lib/shared.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

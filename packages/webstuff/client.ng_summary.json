@@ -1,0 +1,64 @@
+{
+  "ngDeps": {
+    "1": "client",
+    "3": [
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:web_gl",
+        "5": false
+      },
+      {
+        "1": "dart:typed_data",
+        "5": false
+      },
+      {
+        "1": "package:webstuff/communication_service.dart",
+        "5": false
+      },
+      {
+        "1": "package:webstuff/shared.dart",
+        "5": false
+      },
+      {
+        "1": "package:gamedev_helpers/gamedev_helpers.dart",
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "dart:html"
+      },
+      {
+        "1": "package:gamedev_helpers/gamedev_helpers.dart"
+      }
+    ],
+    "6": "client.dart"
+  },
+  "type": {
+    "DeviceMotionEventhandlingSystem": {
+      "class": "Identifier",
+      "name": "DeviceMotionEventhandlingSystem",
+      "moduleUrl": "asset:webstuff/lib/client.dart",
+      "prefix": null,
+      "value": null
+    },
+    "DevicePositionRenderingSystem": {
+      "class": "Identifier",
+      "name": "DevicePositionRenderingSystem",
+      "moduleUrl": "asset:webstuff/lib/client.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Game": {
+      "class": "Identifier",
+      "name": "Game",
+      "moduleUrl": "asset:webstuff/lib/client.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

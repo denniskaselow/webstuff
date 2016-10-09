@@ -1,0 +1,80 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "dart:math",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TodayComponent",
+        "6": [
+          "OnInit"
+        ]
+      }
+    ],
+    "6": "today_component.dart"
+  },
+  "type": {
+    "Tech": {
+      "class": "Identifier",
+      "name": "Tech",
+      "moduleUrl": "asset:webstuff/lib/components/today/today_component.dart",
+      "prefix": null,
+      "value": null
+    },
+    "TodayComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "today",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "TodayComponent",
+        "moduleUrl": "asset:webstuff/lib/components/today/today_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div id='todaycontainer'>\n  <ul id='today'>\n\n  </ul>\n  <div *ngFor='let tech of techs' class='webtech' [ngStyle]='tech.style'>{{tech.name}}</div>\n</div>\n\n\n",
+        "templateUrl": "asset:webstuff/lib/components/today/today_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:webstuff/lib/components/content.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

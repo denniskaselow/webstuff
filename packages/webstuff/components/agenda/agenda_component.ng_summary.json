@@ -1,0 +1,58 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "AgendaComponent"
+      }
+    ],
+    "6": "agenda_component.dart"
+  },
+  "type": {
+    "AgendaComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "agenda",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "AgendaComponent",
+        "moduleUrl": "asset:webstuff/lib/components/agenda/agenda_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "items": "items"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div>\n  <ul id=\"agenda\">\n    <li *ngFor='let item of items'>{{item}}</li>\n  </ul>\n</div>\n\n\n",
+        "templateUrl": "asset:webstuff/lib/components/agenda/agenda_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:webstuff/lib/components/content.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

@@ -1,0 +1,75 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "HistoryComponent",
+        "6": [
+          "OnInit"
+        ]
+      }
+    ],
+    "6": "history_component.dart",
+    "7": [
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "type": {
+    "HistoryComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "history",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "HistoryComponent",
+        "moduleUrl": "asset:webstuff/lib/components/history/history_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div>\n  <ul id=\"history\">\n\n  </ul>\n</div>\n\n\n",
+        "templateUrl": "asset:webstuff/lib/components/history/history_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:webstuff/lib/components/content.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

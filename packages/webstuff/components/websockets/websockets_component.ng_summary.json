@@ -1,0 +1,56 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "WebsocketsComponent"
+      }
+    ],
+    "6": "websockets_component.dart"
+  },
+  "type": {
+    "WebsocketsComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "websockets",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "WebsocketsComponent",
+        "moduleUrl": "asset:webstuff/lib/components/websockets/websockets_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div style='text-align: center'>\n  <img src='smarties.jpg' />\n  <h1>https://denniskaselow.github.io/smarties/</h1>\n</div>\n\n\n",
+        "templateUrl": "asset:webstuff/lib/components/websockets/websockets_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:webstuff/lib/components/content.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}
