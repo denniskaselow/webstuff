@@ -65,6 +65,7 @@
 #logo {
   grid-area: logo;
   background-color: blueviolet;
+  text-align: center;
 }
 
 #title {
