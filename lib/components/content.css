@@ -8,3 +8,7 @@ div > div.webtech {
   position: absolute;
   font-size: 30px;
 }
+
+button {
+  font-size: 30px;
+}
