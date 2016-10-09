@@ -8,9 +8,12 @@ class DeviceMotionEventhandlingSystem extends VoidEntitySystem {
   Map<String, Map<String, dynamic>> motionData = {};
   Map<String, Map<String, double>> rotationData = {};
 
+  WebSocket webSocket;
+
+  DeviceMotionEventhandlingSystem(this.webSocket);
+
   @override
   void initialize() {
-    var webSocket = new WebSocket('wss://isowosi.com/ws/s/webstuff');
     webSocket.onMessage.listen((event) {
       print('message received ${event.data}');
       var eventData = JSON.decode(event.data);

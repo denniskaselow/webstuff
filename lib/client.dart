@@ -5,6 +5,7 @@ export 'dart:html';
 import 'dart:web_gl';
 import 'dart:typed_data';
 import 'dart:convert';
+import 'package:webstuff/communication_service.dart';
 import 'package:webstuff/shared.dart';
 import 'package:gamedev_helpers/gamedev_helpers.dart';
 export 'package:gamedev_helpers/gamedev_helpers.dart';
@@ -13,7 +14,9 @@ part 'src/client/systems/events.dart';
 part 'src/client/systems/rendering.dart';
 
 class Game extends GameBase {
-  Game() : super.noAssets('webstuff', '#game', 200, 200, webgl: true) {
+  CommunicationService communicationService;
+
+  Game(this.communicationService) : super.noAssets('webstuff', '#game', 200, 200, webgl: true) {
     world.addManager(new TagManager());
   }
 
@@ -34,7 +37,7 @@ class Game extends GameBase {
   Map<int, List<EntitySystem>> getSystems() {
     return {
       GameBase.rendering: [
-        new DeviceMotionEventhandlingSystem(),
+        new DeviceMotionEventhandlingSystem(communicationService.allClientsSocket),
         new WebGlCanvasCleaningSystem(ctx),
         new MovementSystem(),
         new DevicePositionRenderingSystem(this.ctx),
