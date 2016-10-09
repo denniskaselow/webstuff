@@ -5,6 +5,7 @@ import 'package:angular2/core.dart';
 import 'package:webstuff/communication_service.dart';
 import 'package:webstuff/client.dart' as dartemis;
 import 'package:webstuff/components/agenda/agenda_component.dart';
+import 'package:webstuff/components/chat/chat_component.dart';
 import 'package:webstuff/components/history/history_component.dart';
 import 'package:webstuff/components/intro/intro_component.dart';
 import 'package:webstuff/components/notifications/notifications_component.dart';
@@ -21,7 +22,8 @@ import 'package:webstuff/components/websockets/websockets_component.dart';
       HistoryComponent,
       TodayComponent,
       WebsocketsComponent,
-      NotificationsComponent
+      NotificationsComponent,
+      ChatComponent,
     ])
 class AppComponent implements OnInit {
   int page = 0;
@@ -31,7 +33,8 @@ class AppComponent implements OnInit {
     'Geschichte des Web',
     'Das Web heute',
     'Raus mit den Smartphones',
-    'Notifications'
+    'Notifications',
+    'Chat'
   ];
   CommunicationService communicationService;
 
