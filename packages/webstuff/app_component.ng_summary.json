@@ -20,6 +20,10 @@
         "5": false
       },
       {
+        "1": "package:webstuff/components/chat/chat_component.dart",
+        "5": false
+      },
+      {
         "1": "package:webstuff/components/history/history_component.dart",
         "5": false
       },
@@ -70,6 +74,9 @@
           },
           {
             "2": "NotificationsComponent"
+          },
+          {
+            "2": "ChatComponent"
           }
         ]
       }
@@ -125,7 +132,7 @@
       ],
       "template": {
         "encapsulation": 0,
-        "template": "<div id=\"logo\"><h1>MdW</h1></div>\n<div id=\"title\"><h1>{{pages[page]}}</h1></div>\n<div id=\"content\">\n  <intro *ngIf='page == 0'></intro>\n  <agenda *ngIf='page == 1' [items]='pages.sublist(2, 5)'></agenda>\n  <history *ngIf='page == 2'></history>\n  <today *ngIf='page == 3'></today>\n  <websockets *ngIf='page == 4'></websockets>\n  <notifications *ngIf='page == 5'></notifications>\n</div>\n<div id=\"nav1\">Level 1 Nav</div>\n<div id=\"nav2\">\n  <!--<canvas id=\"game\"></canvas>-->\n</div>\n<div id=\"clients\">{{clients}}</div>\n<div id=\"footer\">\n  <button (click)='previous()' [disabled]='page == 0'>&lt;&lt;</button>\n  <button (click)='next()' [disabled]='page == pages.length - 1'>&gt;&gt;</button>\n</div>\n\n\n\n",
+        "template": "<div id=\"logo\"><h1>MdW</h1></div>\n<div id=\"title\"><h1>{{pages[page]}}</h1></div>\n<div id=\"content\">\n  <intro *ngIf='page == 0'></intro>\n  <agenda *ngIf='page == 1' [items]='pages.sublist(2, 5)'></agenda>\n  <history *ngIf='page == 2'></history>\n  <today *ngIf='page == 3'></today>\n  <websockets *ngIf='page == 4'></websockets>\n  <notifications *ngIf='page == 5'></notifications>\n  <chat *ngIf='page == 6'></chat>\n</div>\n<div id=\"nav1\">Level 1 Nav</div>\n<div id=\"nav2\">\n  <!--<canvas id=\"game\"></canvas>-->\n</div>\n<div id=\"clients\">{{clients}}</div>\n<div id=\"footer\">\n  <button (click)='previous()' [disabled]='page == 0'>&lt;&lt;</button>\n  <button (click)='next()' [disabled]='page == pages.length - 1'>&gt;&gt;</button>\n</div>\n\n\n\n",
         "templateUrl": "asset:webstuff/lib/app_component.html",
         "styles": [],
         "styleUrls": [

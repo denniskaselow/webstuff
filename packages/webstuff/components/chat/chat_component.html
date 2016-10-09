@@ -1,0 +1,9 @@
+<input #chat type='text' (keyup.enter)="send(chat.value); chat.value=''"/>
+
+<div *ngFor='let message of messages.reversed' class='chatmessage'>
+  {{message.timestamp | date:"HH:mm:ss"}} - {{message.id}}: {{message.text}}
+</div>
+
+
+
+

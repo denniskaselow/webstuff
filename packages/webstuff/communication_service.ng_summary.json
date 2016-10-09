@@ -37,6 +37,13 @@
       "isHost": false,
       "value": null,
       "diDeps": []
+    },
+    "ChatMessage": {
+      "class": "Identifier",
+      "name": "ChatMessage",
+      "moduleUrl": "asset:webstuff/lib/communication_service.dart",
+      "prefix": null,
+      "value": null
     }
   },
   "alias": {}
