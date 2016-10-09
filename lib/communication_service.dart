@@ -17,7 +17,7 @@ class CommunicationService {
 
     allClientsSocket.onMessage.listen((event) {
       print('all ${event.data}');
-      var data = JSON.decode(event.data) as Map;
+      Map data = JSON.decode(event.data);
       try {
         if (data['type'] == 'clientCount') {
           clients = data['message'];

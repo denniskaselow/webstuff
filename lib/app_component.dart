@@ -4,9 +4,10 @@
 import 'package:angular2/core.dart';
 import 'package:webstuff/communication_service.dart';
 import 'package:webstuff/client.dart' as dartemis;
+import 'package:webstuff/components/agenda/agenda_component.dart';
+import 'package:webstuff/components/history/history_component.dart';
 import 'package:webstuff/components/intro/intro_component.dart';
 import 'package:webstuff/components/notifications/notifications_component.dart';
-import 'package:webstuff/components/webrtc/webrtc_component.dart';
 import 'package:webstuff/components/websockets/websockets_component.dart';
 
 @Component(
@@ -15,19 +16,27 @@ import 'package:webstuff/components/websockets/websockets_component.dart';
     templateUrl: 'app_component.html',
     directives: const [
       IntroComponent,
+      AgendaComponent,
+      HistoryComponent,
       WebsocketsComponent,
-      WebRtcComponent,
       NotificationsComponent
     ])
 class AppComponent implements OnInit {
   int page = 0;
-  List<String> pages = ['Agenda', 'WebSockets', 'WebRTC', 'Notifications'];
+  List<String> pages = [
+    'Möglichkeiten des Web',
+    'Agenda',
+    'Geschichte des Web',
+    'Das Web heute',
+    'Raus mit den Smartphones',
+    'Notifications'
+  ];
   CommunicationService communicationService;
 
   AppComponent(this.communicationService);
 
   @override
-  ngOnInit() {
+  void ngOnInit() {
     new dartemis.Game(this.communicationService).start();
   }
 

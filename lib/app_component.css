@@ -12,7 +12,7 @@
 @media (min-width: 1000px) {
   :host {
     display: grid;
-    grid-template-areas: "logo    logo    logout"
+    grid-template-areas: "logo    logo    title"
                          "nav1    nav1    nav1"
                          "nav2    content content"
                          "clients content content"
@@ -30,7 +30,7 @@
 @media (max-width: 1000px) {
   :host {
     display: grid;
-    grid-template-areas: "logo   logout"
+    grid-template-areas: "logo   title"
                          "nav1   nav2"
                          "content content"
                          "clients footer";
@@ -51,9 +51,10 @@
   background-color: blueviolet;
 }
 
-#logout {
-  grid-area: logout;
+#title {
+  grid-area: title;
   background-color: blanchedalmond;
+  text-align: center;
 }
 
 #content {
@@ -82,4 +83,8 @@
   grid-area: footer;
   background-color: dodgerblue;
   text-align: right;
+}
+
+h1 {
+  font-size: 40px;
 }

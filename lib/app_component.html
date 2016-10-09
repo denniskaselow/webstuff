@@ -1,10 +1,11 @@
 <div id="logo">Logo</div>
-<div id="logout">Logout etc</div>
+<div id="title"><h1>{{pages[page]}}</h1></div>
 <div id="content">
   <intro *ngIf='page == 0'></intro>
-  <websockets *ngIf='page == 1'></websockets>
-  <webrtc *ngIf='page == 2'></webrtc>
-  <notifications *ngIf='page == 3'></notifications>
+  <agenda *ngIf='page == 1'></agenda>
+  <history *ngIf='page == 2'></history>
+  <websockets *ngIf='page == 3'></websockets>
+  <notifications *ngIf='page == 4'></notifications>
 </div>
 <div id="nav1">Level 1 Nav</div>
 <div id="nav2">

@@ -4,7 +4,6 @@
 import 'dart:html';
 
 import 'package:angular2/core.dart';
-import 'package:js/js.dart';
 import 'package:webstuff/communication_service.dart';
 
 
