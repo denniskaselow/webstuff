@@ -1,6 +1,8 @@
 <div style='text-align: center'>
-  <img src='smarties.jpg' />
+  <img src='smarties.jpg' width='370px' height='370px'/>
   <h1>https://denniskaselow.github.io/smarties/</h1>
+  <button (click)='changeColor()'>Verbindung testen</button><br />
+  <button (click)='resetColor()' *ngIf='changes % 6 == 0'>Weißer Hintergrund</button>
 </div>
 
 

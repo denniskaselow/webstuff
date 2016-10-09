@@ -3,13 +3,31 @@
     "1": "",
     "3": [
       {
+        "1": "dart:convert",
+        "5": false
+      },
+      {
+        "1": "dart:math",
+        "5": false
+      },
+      {
         "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:webstuff/communication_service.dart",
         "5": false
       }
     ],
     "5": [
       {
-        "1": "WebsocketsComponent"
+        "1": "WebsocketsComponent",
+        "5": [
+          {
+            "1": "CommunicationService",
+            "4": "communicationService"
+          }
+        ]
       }
     ],
     "6": "websockets_component.dart",
@@ -17,6 +35,10 @@
       {
         "1": "package:angular2/core.template.dart",
         "4": "i0"
+      },
+      {
+        "1": "package:webstuff/communication_service.template.dart",
+        "4": "i1"
       }
     ]
   },
@@ -33,7 +55,30 @@
         "prefix": null,
         "isHost": false,
         "value": null,
-        "diDeps": []
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "CommunicationService",
+                "moduleUrl": "asset:webstuff/lib/communication_service.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "query": null,
+            "viewQuery": null,
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
       },
       "changeDetection": 5,
       "inputs": {},
@@ -44,7 +89,7 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 0,
-        "template": "<div style='text-align: center'>\n  <img src='smarties.jpg' />\n  <h1>https://denniskaselow.github.io/smarties/</h1>\n</div>\n\n\n",
+        "template": "<div style='text-align: center'>\n  <img src='smarties.jpg' width='370px' height='370px'/>\n  <h1>https://denniskaselow.github.io/smarties/</h1>\n  <button (click)='changeColor()'>Verbindung testen</button><br />\n  <button (click)='resetColor()' *ngIf='changes % 6 == 0'>Weißer Hintergrund</button>\n</div>\n\n\n",
         "templateUrl": "asset:webstuff/lib/components/websockets/websockets_component.html",
         "styles": [],
         "styleUrls": [
