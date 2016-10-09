@@ -9,7 +9,7 @@ import 'package:webstuff/communication_service.dart';
 
 @Component(
     selector: 'notifications',
-    styleUrls: const ['notifications_component.css'],
+    styleUrls: const ['notifications_component.css', '../content.css'],
     templateUrl: 'notifications_component.html')
 class NotificationsComponent {
   CommunicationService communicationService;

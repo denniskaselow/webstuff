@@ -5,7 +5,7 @@ import 'package:angular2/core.dart';
 
 @Component(
     selector: 'intro',
-    styleUrls: const ['intro_component.css'],
+    styleUrls: const ['../content.css'],
     templateUrl: 'intro_component.html')
 class IntroComponent {
 

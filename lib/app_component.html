@@ -2,7 +2,7 @@
 <div id="title"><h1>{{pages[page]}}</h1></div>
 <div id="content">
   <intro *ngIf='page == 0'></intro>
-  <agenda *ngIf='page == 1' [items]='pages.sublist(1, 5)'></agenda>
+  <agenda *ngIf='page == 1' [items]='pages.sublist(2, 5)'></agenda>
   <history *ngIf='page == 2'></history>
   <websockets *ngIf='page == 3'></websockets>
   <notifications *ngIf='page == 4'></notifications>
@@ -13,8 +13,8 @@
 </div>
 <div id="clients">{{clients}}</div>
 <div id="footer">
-  <button (click)='previous()' [disabled]='page == 0'>Zurück</button>
-  <button (click)='next()' [disabled]='page == 3'>Weiter</button>
+  <button (click)='previous()' [disabled]='page == 0'>&lt;&lt;</button>
+  <button (click)='next()' [disabled]='page == 3'>&gt;&gt;</button>
 </div>
 
 

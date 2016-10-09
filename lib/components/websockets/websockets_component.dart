@@ -5,7 +5,7 @@ import 'package:angular2/core.dart';
 
 @Component(
     selector: 'websockets',
-    styleUrls: const ['websockets_component.css'],
+    styleUrls: const ['../content.css'],
     templateUrl: 'websockets_component.html')
 class WebsocketsComponent {
 

@@ -7,7 +7,7 @@ import 'package:angular2/core.dart';
 
 @Component(
     selector: 'history',
-    styleUrls: const ['history_component.css'],
+    styleUrls: const ['../content.css'],
     templateUrl: 'history_component.html')
 class HistoryComponent implements OnInit {
   List<String> itemsIntro = [

@@ -5,7 +5,7 @@ import 'package:angular2/core.dart';
 
 @Component(
     selector: 'agenda',
-    styleUrls: const ['agenda_component.css'],
+    styleUrls: const ['../content.css'],
     templateUrl: 'agenda_component.html')
 class AgendaComponent {
   @Input()

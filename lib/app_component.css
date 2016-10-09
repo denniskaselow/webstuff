@@ -97,5 +97,42 @@
 #footer {
   grid-area: footer;
   background-color: dodgerblue;
-  text-align: right;
+  text-align: center;
+}
+
+#footer button {
+  width: 49%;
+  height: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 44px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#footer button:focus {
+  outline: none
+}
+
+#footer button {
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+  border: none;
+}
+
+#footer button:disabled {
+  background-color: #8686A8;
+  text-shadow: -1px 1px #636363;
+}
+
+#footer button:hover:not(:disabled) {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+}
+
+#footer button:active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
 }
