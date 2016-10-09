@@ -38,4 +38,6 @@ class AppComponent implements OnInit {
   void previous() {
     page--;
   }
+
+  String get clients => communicationService.clients;
 }

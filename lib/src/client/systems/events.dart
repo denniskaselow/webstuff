@@ -14,20 +14,20 @@ class DeviceMotionEventhandlingSystem extends VoidEntitySystem {
 
   @override
   void initialize() {
-    webSocket.onMessage.listen((event) {
-      print('message received ${event.data}');
-      var eventData = JSON.decode(event.data);
-      var id = '${eventData['id']}';
-      var content = eventData['content'];
-      if (null != content) {
-        var contentMap = JSON.decode(content) as Map<String, dynamic>;
-        if (contentMap.containsKey('interval')) {
-          motionData[id] = contentMap;
-        } else if (contentMap.containsKey('alpha')) {
-          rotationData[id] = contentMap;
-        }
-      }
-    });
+//    webSocket.onMessage.listen((event) {
+//      print('message received ${event.data}');
+//      var eventData = JSON.decode(event.data);
+//      var id = '${eventData['id']}';
+//      var content = eventData['content'];
+//      if (null != content && content != 'removeClient') {
+//        var contentMap = JSON.decode(content) as Map<String, dynamic>;
+//        if (contentMap.containsKey('interval')) {
+//          motionData[id] = contentMap;
+//        } else if (contentMap.containsKey('alpha')) {
+//          rotationData[id] = contentMap;
+//        }
+//      }
+//    });
   }
 
   @override

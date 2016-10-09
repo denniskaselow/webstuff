@@ -4,7 +4,9 @@
 import 'dart:html';
 
 import 'package:angular2/core.dart';
+import 'package:js/js.dart';
 import 'package:webstuff/communication_service.dart';
+
 
 @Component(
     selector: 'notifications',
@@ -13,6 +15,7 @@ import 'package:webstuff/communication_service.dart';
 class NotificationsComponent {
   CommunicationService communicationService;
   NotificationsComponent(this.communicationService);
+
   void send() {
     var text = (querySelector('#text') as InputElement).value;
     communicationService.send('notification', text);

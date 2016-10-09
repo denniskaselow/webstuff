@@ -12,7 +12,11 @@
 @media (min-width: 1000px) {
   :host {
     display: grid;
-    grid-template-areas: "logo   logo    logout" "nav1   nav1    nav1" "nav2   content content" "nav3   content content" "footer footer  footer";
+    grid-template-areas: "logo    logo    logout"
+                         "nav1    nav1    nav1"
+                         "nav2    content content"
+                         "clients content content"
+                         "footer  footer  footer";
     grid-template-columns: 200px 100px minmax(min-content, 1fr);
     grid-template-rows: 100px 50px minmax(min-content, 1fr) 100px 50px
   }
@@ -26,7 +30,10 @@
 @media (max-width: 1000px) {
   :host {
     display: grid;
-    grid-template-areas: "logo   logout" "nav1   nav2" "content content" "nav3 footer";
+    grid-template-areas: "logo   logout"
+                         "nav1   nav2"
+                         "content content"
+                         "clients footer";
     grid-template-columns: 100px minmax(min-content, 1fr);
     grid-template-rows: 50px 50px minmax(min-content, 1fr) 50px
   }
@@ -64,9 +71,11 @@
   background-color: burlywood;
 }
 
-#nav3 {
-  grid-area: nav3;
+#clients {
+  grid-area: clients;
   background-color: antiquewhite;
+  font-size: 85px;
+  text-align: center;
 }
 
 #footer {
