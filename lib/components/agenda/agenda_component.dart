@@ -8,5 +8,6 @@ import 'package:angular2/core.dart';
     styleUrls: const ['agenda_component.css'],
     templateUrl: 'agenda_component.html')
 class AgendaComponent {
-
+  @Input()
+  List<String> items;
 }
