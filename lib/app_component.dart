@@ -39,7 +39,7 @@ class AppComponent implements OnInit {
 
   @override
   void ngOnInit() {
-    new dartemis.Game(this.communicationService).start();
+//    new dartemis.Game(this.communicationService).start();
   }
 
   void next() {
