@@ -29,9 +29,9 @@ import 'package:webstuff/components/websockets/websockets_component.dart';
 class AppComponent {
   int page = 0;
   List<String> pages = [
-    'Möglichkeiten des Web',
+    'Möglichkeiten des Webs',
     'Agenda',
-    'Geschichte des Web',
+    'Kurze Geschichte des Webs',
     'Das Web heute',
     'Raus mit den Smartphones',
     'Notifications',
