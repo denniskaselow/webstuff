@@ -1,75 +1,149 @@
 part of client;
 
-class DevicePositionRenderingSystem extends WebGlRenderingSystem {
+class DeviceWebGlCanvasCleaningSystem extends EntityProcessingSystem {
+  Mapper<RenderTarget> rtm;
+  DevicePositionRenderingSystem dprs;
+
+  DeviceWebGlCanvasCleaningSystem()
+      : super(Aspect.getAspectForAllOf([RenderTarget]));
+
+  @override
+  void processEntity(Entity entity) {
+    var gl = rtm[entity].gl;
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
+    gl.clear(
+        RenderingContext.COLOR_BUFFER_BIT | RenderingContext.DEPTH_BUFFER_BIT);
+  }
+  @override
+  bool checkProcessing() => dprs.shaderSource != null;
+}
+
+class DevicePositionRenderingSystem extends EntitySystem {
   Mapper<Position> pm;
   Mapper<DeviceRotation> drm;
+  Mapper<RenderTarget> rtm;
 
-  Uint16List indices;
-  Float32List items;
-  List<Attrib> attributes;
+  Float32List posItems = new Float32List(12);
 
-  int verticeCount = 4;
-  int valuesPerVertex = 3;
-  int trianglesPerObject = 2;
+  GameHelper helper;
+  ShaderSource shaderSource;
 
-  DevicePositionRenderingSystem(RenderingContext gl)
-      : super(gl, Aspect.getAspectForAllOf([Position, DeviceRotation])) {
-    attributes = [new Attrib('aPos', 3)];
+  DevicePositionRenderingSystem(this.helper)
+      : super(
+            Aspect.getAspectForAllOf([Position, DeviceRotation, RenderTarget]));
+
+  @override
+  void initialize() {
+    helper.loadShader(vShaderFile, fShaderFile).then((shaderSource) {
+      this.shaderSource = shaderSource;
+    });
+  }
+
+  void initProgram(RenderTarget rt) {
+    var vShader = _createShader(
+        rt.gl, RenderingContext.VERTEX_SHADER, shaderSource.vShader);
+    var fShader = _createShader(
+        rt.gl, RenderingContext.FRAGMENT_SHADER, shaderSource.fShader);
+
+    _createProgram(rt, vShader, fShader);
+  }
+
+  void _createProgram(RenderTarget rt, Shader vShader, Shader fShader) {
+    var gl = rt.gl;
+    var program = gl.createProgram();
+    rt.program = program;
+    gl.attachShader(program, vShader);
+    gl.attachShader(program, fShader);
+    gl.linkProgram(program);
+    var linkSuccess =
+        gl.getProgramParameter(program, RenderingContext.LINK_STATUS);
+    if (!linkSuccess) {
+      print(
+          '${this.runtimeType} - Error linking program: ${gl.getProgramInfoLog(program)}');
+    }
+  }
+
+  Shader _createShader(RenderingContext gl, int type, String source) {
+    var shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    var compileSuccess =
+        gl.getShaderParameter(shader, RenderingContext.COMPILE_STATUS);
+    if (!compileSuccess) {
+      print(
+          '${this.runtimeType} - Error compiling shader: ${gl.getShaderInfoLog(shader)}');
+    }
+    return shader;
   }
 
   @override
+  void processEntities(Iterable<Entity> entities) {
+    entities.forEach((entity) {
+      var rt = rtm[entity];
+      if (rt.program == null) {
+        initProgram(rt);
+      }
+      var gl = rt.gl;
+      var program = rt.program;
+      gl.useProgram(program);
+      processEntity(0, entity);
+      render(rt);
+    });
+  }
+
   void processEntity(int index, Entity entity) {
     var p = pm[entity];
     var dr = drm[entity];
-    var rot = dr.rot;// * 2.0 * PI / 360.0;
+    var rot = dr.rot * 2.0 * PI / 360.0;
     var quat = new Quaternion.euler(rot.x, rot.y, rot.z);
 
-    var itemOffset = index * valuesPerVertex * verticeCount;
-    var indicesOffset = index * valuesPerVertex * trianglesPerObject;
-    var offset = index * verticeCount;
+    var rotPos = new Vector3(-0.5, -0.8, 0.0)..applyQuaternion(quat);
+    posItems[0] = p.pos.x + rotPos.x;
+    posItems[1] = p.pos.y + rotPos.y;
+    posItems[2] = p.pos.z + rotPos.z;
 
-    var rotPos = new Vector3(-0.1, -0.1, 0.0)..applyQuaternion(quat);
-    items[itemOffset] = p.pos.x + rotPos.x;
-    items[itemOffset + 1] = p.pos.y + rotPos.y;
-    items[itemOffset + 2] = p.pos.z + rotPos.z;
+    rotPos = new Vector3(0.5, -0.8, 0.0)..applyQuaternion(quat);
+    posItems[3] = p.pos.x + rotPos.x;
+    posItems[4] = p.pos.y + rotPos.y;
+    posItems[5] = p.pos.z + rotPos.z;
 
-    rotPos = new Vector3(0.1, -0.1, 0.0)..applyQuaternion(quat);
-    items[itemOffset + 3] = p.pos.x + rotPos.x;
-    items[itemOffset + 4] = p.pos.y + rotPos.y;
-    items[itemOffset + 5] = p.pos.z + rotPos.z;
+    rotPos = new Vector3(0.5, 0.8, 0.0)..applyQuaternion(quat);
+    posItems[6] = p.pos.x + rotPos.x;
+    posItems[7] = p.pos.y + rotPos.y;
+    posItems[8] = p.pos.z + rotPos.z;
 
-    rotPos = new Vector3(-0.1, 0.1, 0.0)..applyQuaternion(quat);
-    items[itemOffset + 6] = p.pos.x + rotPos.x;
-    items[itemOffset + 7] = p.pos.y + rotPos.y;
-    items[itemOffset + 8] = p.pos.z + rotPos.z;
-
-    rotPos = new Vector3(0.1, 0.1, 0.0)..applyQuaternion(quat);
-    items[itemOffset + 9] = p.pos.x + rotPos.x;
-    items[itemOffset + 10] = p.pos.y + rotPos.y;
-    items[itemOffset + 11] = p.pos.z + rotPos.z;
-
-    indices[indicesOffset] = offset;
-    indices[indicesOffset + 1] = offset + 1;
-    indices[indicesOffset + 2] = offset + 2;
-    indices[indicesOffset + 3] = offset + 1;
-    indices[indicesOffset + 4] = offset + 2;
-    indices[indicesOffset + 5] = offset + 3;
+    rotPos = new Vector3(-0.5, 0.8, 0.0)..applyQuaternion(quat);
+    posItems[9] = p.pos.x + rotPos.x;
+    posItems[10] = p.pos.y + rotPos.y;
+    posItems[11] = p.pos.z + rotPos.z;
   }
 
-  @override
-  void updateLength(int length) {
-    items = new Float32List(length * valuesPerVertex * verticeCount);
-    indices = new Uint16List(length * valuesPerVertex * trianglesPerObject);
+  void render(RenderTarget rt) {
+    buffer(rt, 'aPos', posItems, 3);
+    rt.gl.drawArrays(TRIANGLE_FAN, 0, posItems.length ~/ 3);
   }
 
-  @override
-  void render(int length) {
-    bufferElements(attributes, items, indices);
-    gl.drawElements(TRIANGLES, indices.length, UNSIGNED_SHORT, 0);
+  void buffer(RenderTarget rt, String attribute,
+      Float32List items, int itemSize,
+      {int usage: DYNAMIC_DRAW}) {
+    var buffers = rt.buffers;
+    var gl = rt.gl;
+    var program = rt.program;
+    var buffer = buffers[attribute];
+    if (null == buffer) {
+      buffer = gl.createBuffer();
+      buffers[attribute] = buffer;
+    }
+    var attribLocation = gl.getAttribLocation(program, attribute);
+    gl.bindBuffer(RenderingContext.ARRAY_BUFFER, buffer);
+    gl.bufferData(RenderingContext.ARRAY_BUFFER, items, usage);
+    gl.vertexAttribPointer(
+        attribLocation, itemSize, RenderingContext.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(attribLocation);
   }
 
-  @override
   String get vShaderFile => 'DevicePositionRenderingSystem';
-  @override
   String get fShaderFile => 'DevicePositionRenderingSystem';
+  @override
+  bool checkProcessing() => shaderSource != null;
 }

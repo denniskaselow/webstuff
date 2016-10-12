@@ -11,7 +11,7 @@ class CommunicationService {
   List<ChatMessage> chatMessages = [];
 
   CommunicationService() {
-    allClientsSocket = new WebSocket('wss://isowosi.com/ws/s/webstuff');
+    allClientsSocket = new WebSocket('wss://isowosi.com/ws/s/webstuffserver');
     bcSocket = new WebSocket('wss://isowosi.com/ws/bc/webstuff');
 
     allClientsSocket.onMessage.listen((event) {
@@ -30,14 +30,13 @@ class CommunicationService {
           if (payload['type'] == 'chat') {
             chatMessages
                 .add(new ChatMessage('${data['id']}', payload['content'], new DateTime.now()));
-            print(chatMessages);
           }
         }
       } catch (_) {}
     });
   }
 
-  void send(String type, String content) {
+  void send(String type, [String content = '']) {
     allClientsSocket.send(JSON.encode({'type': type, 'content': content}));
   }
 

@@ -3,9 +3,9 @@
 
 import 'package:angular2/core.dart';
 import 'package:webstuff/communication_service.dart';
-import 'package:webstuff/client.dart' as dartemis;
 import 'package:webstuff/components/agenda/agenda_component.dart';
 import 'package:webstuff/components/chat/chat_component.dart';
+import 'package:webstuff/components/devicedata/devicedata_component.dart';
 import 'package:webstuff/components/history/history_component.dart';
 import 'package:webstuff/components/intro/intro_component.dart';
 import 'package:webstuff/components/notifications/notifications_component.dart';
@@ -24,8 +24,9 @@ import 'package:webstuff/components/websockets/websockets_component.dart';
       WebsocketsComponent,
       NotificationsComponent,
       ChatComponent,
+      DevicedataComponent
     ])
-class AppComponent implements OnInit {
+class AppComponent {
   int page = 0;
   List<String> pages = [
     'Möglichkeiten des Web',
@@ -34,16 +35,13 @@ class AppComponent implements OnInit {
     'Das Web heute',
     'Raus mit den Smartphones',
     'Notifications',
-    'Chat'
+    'Chat',
+    'Tracking',
+    'Fragen?'
   ];
   CommunicationService communicationService;
 
   AppComponent(this.communicationService);
-
-  @override
-  void ngOnInit() {
-//    new dartemis.Game(this.communicationService).start();
-  }
 
   void next() {
     page++;
