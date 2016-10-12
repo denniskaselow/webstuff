@@ -23,8 +23,11 @@ class HistoryComponent implements OnInit {
   @override
   void ngOnInit() {
     var container = querySelector('ul#history');
-    var index = 0;
-    new Timer.periodic(new Duration(seconds: 1), (Timer timer) {
+    var index = 1;
+    var liElement = new LIElement();
+    liElement.appendText(itemsIntro[0]);
+    container.append(liElement);
+    new Timer.periodic(new Duration(seconds: 10), (Timer timer) {
       var liElement = new LIElement();
       liElement.appendText(itemsIntro[index]);
       container.append(liElement);

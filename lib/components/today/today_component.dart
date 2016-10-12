@@ -172,8 +172,11 @@ class TodayComponent implements OnInit {
   Future<Null> showBasicItems() {
     var completer = new Completer();
     var container = querySelector('ul#today');
-    var index = 0;
-    new Timer.periodic(new Duration(seconds: 1), (Timer timer) {
+    var index = 1;
+    var liElement = new LIElement();
+    liElement.appendText(basicItems[0]);
+    container.append(liElement);
+    new Timer.periodic(new Duration(seconds: 15), (Timer timer) {
       var liElement = new LIElement();
       liElement.appendText(basicItems[index]);
       container.append(liElement);
@@ -188,7 +191,7 @@ class TodayComponent implements OnInit {
 
   void showAllItems() {
     items.shuffle();
-    var duration = 1000;
+    var duration = 5000;
     displayItem(duration);
   }
 
@@ -196,7 +199,7 @@ class TodayComponent implements OnInit {
     new Timer(new Duration(milliseconds: duration), () {
       techs.add(new Tech(items.removeLast(), {'left': '${random.nextInt(90)}%', 'top': '${random.nextInt(90)}%'}));
       if (items.isNotEmpty) {
-        displayItem((duration * 0.95).toInt());
+        displayItem((duration * 0.90).toInt());
       }
     });
   }
