@@ -64,7 +64,7 @@
  * region (area) of the grid. */
 #logo {
   grid-area: logo;
-  background-color: blueviolet;
+  background-color: lightcyan;
   text-align: center;
 }
 

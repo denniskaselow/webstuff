@@ -3,6 +3,10 @@
     "1": "client",
     "3": [
       {
+        "1": "dart:convert",
+        "5": false
+      },
+      {
         "1": "dart:html",
         "5": false
       },
@@ -48,6 +52,13 @@
     ]
   },
   "type": {
+    "DeviceHandlerSystem": {
+      "class": "Identifier",
+      "name": "DeviceHandlerSystem",
+      "moduleUrl": "asset:webstuff/lib/client.dart",
+      "prefix": null,
+      "value": null
+    },
     "DeviceMotionEventhandlingSystem": {
       "class": "Identifier",
       "name": "DeviceMotionEventhandlingSystem",
@@ -55,9 +66,23 @@
       "prefix": null,
       "value": null
     },
+    "DeviceWebGlCanvasCleaningSystem": {
+      "class": "Identifier",
+      "name": "DeviceWebGlCanvasCleaningSystem",
+      "moduleUrl": "asset:webstuff/lib/client.dart",
+      "prefix": null,
+      "value": null
+    },
     "DevicePositionRenderingSystem": {
       "class": "Identifier",
       "name": "DevicePositionRenderingSystem",
+      "moduleUrl": "asset:webstuff/lib/client.dart",
+      "prefix": null,
+      "value": null
+    },
+    "RenderTarget": {
+      "class": "Identifier",
+      "name": "RenderTarget",
       "moduleUrl": "asset:webstuff/lib/client.dart",
       "prefix": null,
       "value": null
