@@ -12766,11 +12766,16 @@ fG:function(){this.k4.k7()},
 $asp:I.L},
 Eb:{"^":"b:8;",
 $1:[function(a){return new D.cH(a,null,null,0)},null,null,2,0,null,15,"call"]}}],["","",,Z,{"^":"",cJ:{"^":"a;a",
-by:function(){var z,y
+by:function(){var z,y,x,w
 z={}
 y=document.querySelector("ul#history")
-z.a=0
-P.ln(P.el(0,0,0,0,0,1),new Z.vf(z,this,y))}},vf:{"^":"b:51;a,b,c",
+z.a=1
+x=document
+w=x.createElement("li")
+x=this.a[0]
+w.appendChild(document.createTextNode(x))
+y.appendChild(w)
+P.ln(P.el(0,0,0,0,0,10),new Z.vf(z,this,y))}},vf:{"^":"b:51;a,b,c",
 $1:[function(a){var z,y,x,w
 z=document
 y=z.createElement("li")
@@ -12993,17 +12998,22 @@ $asp:I.L},
 E8:{"^":"b:8;",
 $1:[function(a){return new S.cU(a)},null,null,2,0,null,15,"call"]}}],["","",,F,{"^":"",bB:{"^":"a;a,b,jW:c<,pU:d<",
 by:function(){this.kX().ay(new F.yi(this))},
-kX:function(){var z,y,x
+kX:function(){var z,y,x,w,v
 z={}
 y=new P.a2(0,$.r,null,[null])
 x=document.querySelector("ul#today")
-z.a=0
-P.ln(P.el(0,0,0,0,0,1),new F.yj(z,this,new P.eP(y,[null]),x))
+z.a=1
+w=document
+v=w.createElement("li")
+w=this.b[0]
+v.appendChild(document.createTextNode(w))
+x.appendChild(v)
+P.ln(P.el(0,0,0,0,0,15),new F.yj(z,this,new P.eP(y,[null]),x))
 return y},
 jy:function(a){P.hk(P.el(0,0,0,a,0,0),new F.yh(this,a))}},yi:{"^":"b:0;a",
 $1:[function(a){var z=this.a
 C.b.kZ(z.c)
-z.jy(1000)},null,null,2,0,null,4,"call"]},yj:{"^":"b:51;a,b,c,d",
+z.jy(5000)},null,null,2,0,null,4,"call"]},yj:{"^":"b:51;a,b,c,d",
 $1:[function(a){var z,y,x,w
 z=document
 y=z.createElement("li")
@@ -13022,7 +13032,7 @@ y=z.c
 if(0>=y.length)return H.d(y,-1)
 x=z.a
 z.d.push(new F.y6(y.pop(),P.U(["left",""+x.bk(90)+"%","top",""+x.bk(90)+"%"])))
-if(z.c.length!==0)z.jy(C.j.dh(this.b*0.95))},null,null,0,0,null,"call"]},y6:{"^":"a;O:a>,i5:b>"}}],["","",,L,{"^":"",
+if(z.c.length!==0)z.jy(C.j.dh(this.b*0.9))},null,null,0,0,null,"call"]},y6:{"^":"a;O:a>,i5:b>"}}],["","",,L,{"^":"",
 qV:function(a,b){var z,y,x
 z=$.it
 if(z==null){z=$.at.af("asset:webstuff/lib/components/today/today_component.html",0,C.o,C.F)
